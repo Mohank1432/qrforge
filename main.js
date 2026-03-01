@@ -543,5 +543,5 @@ $$('.nav-link').forEach(link => {
 renderHistory();
 
 // Set default URL in input for quick demo
-urlInput.value = 'https://qrforge.app';
+urlInput.value = 'https://qr.mktools.ink';
 generateQR();
