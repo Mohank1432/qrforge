@@ -563,8 +563,10 @@ function showToast(message, type = '') {
 // ============================================
 $$('.nav-link').forEach(link => {
     link.addEventListener('click', (e) => {
-        e.preventDefault();
         const target = link.getAttribute('href');
+        if (!target.startsWith('#')) return; // Allow external/absolute links
+
+        e.preventDefault();
         const el = $(target);
         if (el) {
             el.scrollIntoView({ behavior: 'smooth', block: 'start' });
