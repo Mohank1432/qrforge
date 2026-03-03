@@ -1,5 +1,7 @@
 import QRCode from 'qrcode';
 import './style.css';
+import { inject } from '@vercel/analytics';
+inject();
 
 // ============================================
 // QRForge — Main Application
