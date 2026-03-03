@@ -198,6 +198,41 @@ a:hover {
   background: rgba(99, 102, 241, 0.08);
 }
 
+.nav-alltools {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: var(--accent-glow);
+  border: 1px solid var(--accent-primary);
+  color: var(--accent-primary) !important;
+  font-weight: 600;
+  padding: 0.4rem 0.85rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  transition: all 0.25s ease;
+  animation: navpulse 3s ease-in-out infinite;
+}
+
+.nav-alltools:hover {
+  background: var(--accent-primary);
+  color: white !important;
+  box-shadow: 0 4px 20px var(--accent-glow);
+  transform: translateY(-1px);
+  animation: none;
+}
+
+@keyframes navpulse {
+
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 transparent;
+  }
+
+  50% {
+    box-shadow: 0 0 12px var(--accent-glow);
+  }
+}
+
 .nav-link.active {
   color: var(--accent-primary);
   background: rgba(99, 102, 241, 0.1);
