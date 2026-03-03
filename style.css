@@ -4,7 +4,7 @@
 
 /* --- CSS Custom Properties --- */
 :root {
-  /* Colors */
+  /* Colors - default Dark */
   --bg-primary: #0a0a14;
   --bg-secondary: #0f0f1a;
   --bg-card: rgba(17, 17, 34, 0.7);
@@ -48,6 +48,45 @@
 
   /* Font */
   --font: 'Inter', system-ui, -apple-system, sans-serif;
+  color-scheme: dark;
+}
+
+[data-theme="light"] {
+  --bg-primary: #f8fafb;
+  --bg-secondary: #ffffff;
+  --bg-card: rgba(255, 255, 255, 0.85);
+  --bg-card-hover: rgba(255, 255, 255, 0.95);
+  --bg-input: rgba(241, 245, 249, 0.8);
+  --border-color: rgba(99, 102, 241, 0.15);
+  --border-active: rgba(99, 102, 241, 0.4);
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
+  --text-muted: #94a3b8;
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.06);
+  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.1);
+  --shadow-glow: 0 0 24px rgba(99, 102, 241, 0.08);
+  color-scheme: light;
+}
+
+@media (prefers-color-scheme: light) {
+  [data-theme="system"] {
+    --bg-primary: #f8fafb;
+    --bg-secondary: #ffffff;
+    --bg-card: rgba(255, 255, 255, 0.85);
+    --bg-card-hover: rgba(255, 255, 255, 0.95);
+    --bg-input: rgba(241, 245, 249, 0.8);
+    --border-color: rgba(99, 102, 241, 0.15);
+    --border-active: rgba(99, 102, 241, 0.4);
+    --text-primary: #0f172a;
+    --text-secondary: #475569;
+    --text-muted: #94a3b8;
+    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.06);
+    --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.08);
+    --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.1);
+    --shadow-glow: 0 0 24px rgba(99, 102, 241, 0.08);
+    color-scheme: light;
+  }
 }
 
 /* --- Reset & Base --- */
@@ -71,6 +110,7 @@ body {
   line-height: 1.6;
   min-height: 100vh;
   overflow-x: hidden;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 /* Animated background */
@@ -161,6 +201,72 @@ a:hover {
 .nav-link.active {
   color: var(--accent-primary);
   background: rgba(99, 102, 241, 0.1);
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* --- Theme Toggle --- */
+.theme-toggle {
+  display: flex;
+  align-items: center;
+  position: relative;
+  background: var(--bg-input);
+  border: 1px solid var(--border-color);
+  border-radius: 20px;
+  padding: 3px;
+  gap: 2px;
+}
+
+.theme-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 28px;
+  border: none;
+  background: transparent;
+  color: var(--text-muted);
+  cursor: pointer;
+  border-radius: 14px;
+  transition: all 0.25s ease;
+  z-index: 1;
+  font-size: 0;
+}
+
+.theme-btn:hover {
+  color: var(--text-primary);
+}
+
+.theme-btn.active {
+  color: var(--accent-primary);
+}
+
+.theme-indicator {
+  position: absolute;
+  width: 30px;
+  height: 28px;
+  background: var(--accent-glow);
+  border: 1px solid rgba(99, 102, 241, 0.2);
+  border-radius: 14px;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  top: 3px;
+  left: 3px;
+}
+
+.theme-indicator[data-pos="0"] {
+  transform: translateX(0);
+}
+
+.theme-indicator[data-pos="1"] {
+  transform: translateX(32px);
+}
+
+.theme-indicator[data-pos="2"] {
+  transform: translateX(64px);
 }
 
 /* --- Hero --- */

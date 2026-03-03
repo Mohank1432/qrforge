@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="system">
 
 <head>
   <meta charset="UTF-8" />
@@ -82,11 +82,27 @@
         </svg>
         <span class="logo-text">QR<span class="logo-accent">Forge</span></span>
       </a>
-      <nav class="nav">
-        <a href="#generator" class="nav-link active">Generator</a>
-        <a href="#bulk" class="nav-link">Bulk Mode</a>
-        <a href="#history" class="nav-link">History</a>
-      </nav>
+      <div class="header-actions">
+        <nav class="nav">
+          <a href="#generator" class="nav-link active">Generator</a>
+          <a href="#bulk" class="nav-link">Bulk Mode</a>
+          <a href="#history" class="nav-link">History</a>
+        </nav>
+        <!-- Theme Toggle -->
+        <div class="theme-toggle" id="theme-toggle" title="Toggle theme">
+          <button class="theme-btn" data-theme="light" title="Light mode">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="3" stroke="currentColor" stroke-width="1.5"/><path d="M8 1.5v1.5M8 13v1.5M1.5 8H3M13 8h1.5M3.17 3.17l1.06 1.06M11.77 11.77l1.06 1.06M3.17 12.83l1.06-1.06M11.77 4.23l1.06-1.06" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+          </button>
+          <button class="theme-btn" data-theme="system" title="System theme">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="2" y="3" width="12" height="8" rx="1" stroke="currentColor" stroke-width="1.5"/><path d="M5 14h6M8 11v3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+          </button>
+          <button class="theme-btn" data-theme="dark" title="Dark mode">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M14 9.2A6 6 0 0 1 6.8 2 6 6 0 1 0 14 9.2z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <div class="theme-indicator" id="theme-indicator"></div>
+        </div>
+        <a href="https://mktools.ink" class="nav-link">MKTools</a>
+      </div>
     </div>
   </header>
 

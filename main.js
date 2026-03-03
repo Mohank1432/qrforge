@@ -60,6 +60,43 @@ const btnClearHistory = $('#btn-clear-history');
 // Toast
 const toast = $('#toast');
 
+// ============================================
+// Theme Toggle
+// ============================================
+const themeToggle = $('#theme-toggle');
+const themeIndicator = $('#theme-indicator');
+const themeBtns = $$('.theme-btn');
+const THEME_KEY = 'qrforge_theme';
+
+function initTheme() {
+    const saved = localStorage.getItem(THEME_KEY) || 'system';
+    setTheme(saved);
+}
+
+function setTheme(theme) {
+    document.documentElement.setAttribute('data-theme', theme);
+    localStorage.setItem(THEME_KEY, theme);
+
+    if (themeBtns.length) {
+        themeBtns.forEach(btn => {
+            btn.classList.toggle('active', btn.dataset.theme === theme);
+        });
+    }
+
+    const positions = { light: '0', system: '1', dark: '2' };
+    if (themeIndicator) {
+        themeIndicator.setAttribute('data-pos', positions[theme] || '1');
+    }
+}
+
+if (themeBtns.length) {
+    themeBtns.forEach(btn => {
+        btn.addEventListener('click', () => setTheme(btn.dataset.theme));
+    });
+}
+
+initTheme();
+
 // --- State ---
 let currentType = 'url';
 let currentData = '';
