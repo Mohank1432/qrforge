@@ -456,6 +456,15 @@
   <div class="toast" id="toast"></div>
 
   <script type="module" src="/main.js"></script>
+
+  <!-- Cookie Consent Banner -->
+  <div id="cookie-consent" style="display:none; position:fixed; bottom:0; left:0; right:0; background:rgba(10,15,20,0.97); border-top:1px solid rgba(59,130,246,0.2); padding:1rem 1.5rem; z-index:9999; backdrop-filter:blur(12px);">
+    <div style="max-width:960px; margin:0 auto; display:flex; align-items:center; justify-content:space-between; gap:1rem; flex-wrap:wrap;">
+      <p style="color:#e8ecf0; font-size:0.9rem; line-height:1.6; flex:1; min-width:200px;">We use cookies for ads via Google AdSense and to remember your theme preference. By continuing, you consent to our <a href="/privacy.html" style="color:#3b82f6; text-decoration:underline;">Privacy Policy</a>.</p>
+      <button onclick="document.getElementById('cookie-consent').style.display='none'; localStorage.setItem('mktools_cookie_consent','1');" style="background:linear-gradient(135deg,#3b82f6,#2563eb); color:white; border:none; padding:0.6rem 1.5rem; border-radius:8px; font-weight:600; cursor:pointer; font-size:0.9rem; white-space:nowrap;">Accept</button>
+    </div>
+  </div>
+  <script>if(!localStorage.getItem('mktools_cookie_consent')){document.getElementById('cookie-consent').style.display='block';}</script>
 </body>
 
 </html>
